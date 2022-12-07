@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles.module.css';
+import PropTypes from 'prop-types';
 
 export const Options = ({ options, onClick }) => {
   return (
@@ -13,3 +14,12 @@ export const Options = ({ options, onClick }) => {
 
   );
 };
+
+Options.propTypes = {
+  buttonName: PropTypes.arrayOf({
+    Good: PropTypes.string,
+    Neutral: PropTypes.string,
+    Bad: PropTypes.string,
+  }),
+  handleClickButton: PropTypes.func
+}

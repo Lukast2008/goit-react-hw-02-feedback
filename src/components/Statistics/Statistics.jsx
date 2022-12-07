@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Options } from './Options';
 import { Statistic } from './StatisticList';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 
 class EspressoStatistics extends Component {
@@ -14,12 +14,11 @@ class EspressoStatistics extends Component {
   static defaultProps = {
     buttonName: ['Good', 'Neutral', 'Bad'],
 
-    listItem: ['Good', 'Neutral', 'Bad', 'Total', 'Positive']
+    listItem: ['Good', 'Neutral', 'Bad', 'Total', 'Positive'],
   };
 
   handleClickButton = key => {
     this.setState(prevState => ({ [key]: prevState[key] + 1 }));
-    this.countTotalFeedback(key);
   };
 
   countTotalFeedback = () => {
@@ -62,32 +61,20 @@ class EspressoStatistics extends Component {
 }
 
 EspressoStatistics.propType = {
-  buttonName: PropTypes.arrayOf(
-    PropTypes.shape({
-      Good: PropTypes.number,
-      Neutral: PropTypes.number,
-      Bad:PropTypes.number,
-    })
-  ),
+  buttonName: PropTypes.arrayOf({
+    Good: PropTypes.string,
+    Neutral: PropTypes.string,
+    Bad: PropTypes.string,
+  }),
+  listItem: PropTypes.arrayOf({
+    Good: PropTypes.string.isRequired,
+    Neutral: PropTypes.string.isRequired,
+    Bad: PropTypes.string.isRequired,
+    Total: PropTypes.string.isRequired,
+    Positive: PropTypes.string.isRequired,
+  }),
 
-  listItem: PropTypes.arrayOf(
-    PropTypes.shape({
-      Good: PropTypes.number.isRequired,
-      Neutral: PropTypes.number.isRequired,
-      Bad: PropTypes.number.isRequired,
-      Total: PropTypes.number.isRequired,
-      Positive: PropTypes.number.isRequired,
-    })
-  )
-
-}
   
-  
-
-
-    
-  
-   
-
+};
 
 export default EspressoStatistics;

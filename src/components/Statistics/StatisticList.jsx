@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles.module.css';
+import PropTypes from 'prop-types';
 
 export const Statistic = ({
   statistics,
@@ -17,4 +18,21 @@ export const Statistic = ({
       ))}
     </>
   );
+};
+
+Statistic.propTypes = {
+  listItem: PropTypes.arrayOf({
+    Good: PropTypes.string.isRequired,
+    Bad: PropTypes.string.isRequired,
+    Total: PropTypes.string.isRequired,
+    Positive: PropTypes.string.isRequired,
+  }),
+  stateItem: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  }),
+
+  totalItem: PropTypes.number,
+  positiveItem: PropTypes.number,
 };
