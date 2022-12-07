@@ -19,21 +19,21 @@ class EspressoStatistics extends Component {
 
   handleClickButton = key => {
     this.setState(prevState => ({ [key]: prevState[key] + 1 }));
-    this.totalFeedback(key);
+    this.countTotalFeedback(key);
   };
 
-  totalFeedback = () => {
+  countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     return good + neutral + bad;
   };
 
-  positiveFeesBack = () => {
-    return Math.floor((this.state.good * 100) / this.totalFeedback());
+  countPositiveFeedbackPercentage = () => {
+    return Math.floor((this.state.good * 100) / this.countTotalFeedback());
   };
 
   render() {
-    const total = this.totalFeedback();
-    const positive = this.positiveFeesBack();
+    const total = this.countTotalFeedback();
+    const positive = this.countPositiveFeedbackPercentage();
 
     return (
       <section className={styles.section}>
