@@ -21,17 +21,12 @@ export const Statistic = ({
 };
 
 Statistic.propTypes = {
-  listItem: PropTypes.arrayOf({
-    Good: PropTypes.string.isRequired,
-    Bad: PropTypes.string.isRequired,
-    Total: PropTypes.string.isRequired,
-    Positive: PropTypes.string.isRequired,
-  }),
+  statistics: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   stateItem: PropTypes.shape({
     good: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
-  }),
+  }).isRequired,
 
   totalItem: PropTypes.number,
   positiveItem: PropTypes.number,

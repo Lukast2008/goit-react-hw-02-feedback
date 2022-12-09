@@ -21,5 +21,5 @@ Options.propTypes = {
     Neutral: PropTypes.string,
     Bad: PropTypes.string,
   }),
-  handleClickButton: PropTypes.func
+  onClick: PropTypes.func
 }
